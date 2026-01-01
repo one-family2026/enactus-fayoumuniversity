@@ -1,0 +1,1177 @@
+/* ================= Gold & Luxury + Modern (Enactus Fayoum University) ================= */
+
+:root{
+  /* Dark (default) */
+  --bg:#07070a;
+  --bg-2:#0c0c11;
+  --surface:rgba(255,255,255,.04);
+  --surface-2:rgba(255,255,255,.06);
+
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.72);
+  --border:rgba(255,255,255,.10);
+
+  /* Gold palette */
+  --gold:#FFC220;
+  --gold-2:#FFD37A;
+  --gold-3:#B88A2B;
+
+  /* Layout */
+  --container:1120px;
+  --nav-h:72px;
+
+  /* Radius */
+  --r-sm:12px;
+  --r-md:16px;
+  --r-lg:24px;
+
+  /* Shadows */
+  --shadow:0 16px 50px rgba(0,0,0,.40);
+  --shadow-soft:0 12px 30px rgba(0,0,0,.25);
+  --gold-glow:0 20px 60px rgba(255,194,32,.12);
+}
+
+body.light-mode{
+  --bg:#f7f7f8;
+  --bg-2:#ffffff;
+  --surface:rgba(0,0,0,.04);
+  --surface-2:rgba(0,0,0,.06);
+
+  --text:#141414;
+  --muted:rgba(0,0,0,.70);
+  --border:rgba(0,0,0,.10);
+
+  --shadow:0 16px 40px rgba(0,0,0,.10);
+  --shadow-soft:0 12px 28px rgba(0,0,0,.08);
+  --gold-glow:0 18px 55px rgba(255,194,32,.14);
+}
+
+/* ================= Base ================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.75;
+  transition:background-color .25s ease,color .25s ease;
+}
+
+/* Soft luxury ambient background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-30vh -30vw;
+  pointer-events:none;
+  z-index:-2;
+  background:
+    radial-gradient(60vw 60vw at 20% 10%, rgba(255,194,32,.10), transparent 55%),
+    radial-gradient(55vw 55vw at 80% 20%, rgba(255,211,122,.08), transparent 60%),
+    radial-gradient(75vw 75vw at 50% 85%, rgba(184,138,43,.08), transparent 60%);
+  filter: blur(0px);
+}
+
+/* Subtle grain (premium feel) */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.06;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.35) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 1px, transparent 1px 4px);
+  mix-blend-mode: overlay;
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.container{width:min(var(--container), calc(100% - 2rem)); margin-inline:auto;}
+
+:focus-visible{
+  outline:3px solid rgba(255,194,32,.65);
+  outline-offset:3px;
+  border-radius:12px;
+}
+
+.section{padding:88px 0;}
+.section-title{
+  font-size:clamp(1.6rem, 2.3vw, 2.4rem);
+  letter-spacing:.2px;
+  margin-bottom:44px;
+}
+.highlight{
+  background: linear-gradient(90deg, var(--gold), var(--gold-2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* ================= Navbar ================= */
+.navbar{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  z-index:1000;
+
+  background:rgba(0,0,0,.55);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body.light-mode .navbar{
+  background:rgba(255,255,255,.75);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.logo{
+  text-decoration:none;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.3px;
+  white-space:nowrap;
+  font-size:20px;
+}
+.logo span{ color: var(--gold); }
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.icon-btn{
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  color:var(--text);
+  padding:10px;
+  border-radius:12px;
+  font-size:1.18rem;
+  transition:transform .18s ease, background-color .18s ease, color .18s ease;
+}
+.icon-btn:hover{
+  transform:translateY(-1px);
+  background:var(--surface);
+  color:var(--gold);
+}
+
+.lang-btn{
+  background:var(--surface);
+  border:1px solid var(--border);
+  color:var(--text);
+  font-weight:900;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.lang-btn:hover{
+  transform:translateY(-1px);
+  background:var(--surface-2);
+  border-color:rgba(255,194,32,.55);
+  color:var(--gold);
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:800;
+  opacity:.92;
+  transition:opacity .18s ease, color .18s ease, background-color .18s ease;
+}
+.nav-links a:hover{ opacity:1; color:var(--gold); }
+.nav-links a.active{ color:var(--gold); }
+
+.btn-join{
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none;
+  border:1px solid rgba(255,194,32,.55);
+  background: linear-gradient(135deg, rgba(255,194,32,.15), rgba(255,211,122,.06));
+}
+.btn-join:hover{
+  background: linear-gradient(135deg, rgba(255,194,32,.22), rgba(255,211,122,.10));
+  color:var(--gold);
+}
+
+/* ================= Buttons ================= */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+  padding:12px 26px;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+
+.btn-primary{
+  color:#0b0b0b;
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  box-shadow: var(--gold-glow);
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 26px 70px rgba(255,194,32,.16); }
+
+.btn-outline{
+  border:1px solid rgba(255,194,32,.55);
+  background: rgba(0,0,0,.18);
+  color:var(--text);
+}
+/* تنسيق زرار الانضمام الجديد في الهيرو */
+.btn-glow {
+  background: rgba(255, 255, 255, 0.1); /* خلفية شفافة بيضاء خفيفة */
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); /* لمعة خفيفة حوله */
+  backdrop-filter: blur(5px); /* تأثير الزجاج */
+}
+
+.btn-glow:hover {
+  background: #fff; /* لما تقف عليه ينور أبيض كامل */
+  color: #000;      /* الكلام يسود */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4); /* اللمعة تزيد */
+  transform: translateY(-3px);
+  border-color: #fff;
+}
+
+/* في الوضع الفاتح (Light Mode) نعكس الألوان عشان يبان */
+body.light-mode .btn-glow {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+body.light-mode .btn-glow:hover {
+  background: #000;
+  color: #fff;
+}
+body.light-mode .btn-outline{ background: rgba(255,255,255,.65); }
+.btn-outline:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,194,32,.85);
+  color:var(--gold);
+}
+
+/* ================= Hero ================= */
+.hero{
+  min-height:100svh;
+  padding-top:var(--nav-h);
+  position:relative;
+
+  /* IMPORTANT: your local image */
+  background-image:url("team-bg.jpg");
+  background-size:cover;
+  background-position:center;
+
+  display:grid;
+  place-items:center;
+  text-align:center;
+
+  isolation:isolate;
+}
+
+/* Gold luxury cinematic overlay */
+.overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    radial-gradient(80vw 70vw at 50% 10%, rgba(255,194,32,.18), transparent 55%),
+    radial-gradient(70vw 70vw at 15% 40%, rgba(184,138,43,.12), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.78), rgba(0,0,0,.42), rgba(0,0,0,.88));
+}
+
+/* Soft gold lift from bottom */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+  box-shadow: inset 0 -140px 220px rgba(255,194,32,.10);
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+
+  max-width:900px;
+  padding:28px;
+
+  /* This is what prevents "text merging into image" */
+  background: linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.16));
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:var(--r-lg);
+
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+body.light-mode .hero-content{
+  background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,.55));
+  border-color: rgba(0,0,0,.08);
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:900;
+  letter-spacing:.2px;
+  margin-bottom:14px;
+
+  color: var(--gold-2);
+  background: rgba(0,0,0,.22);
+  border:1px solid rgba(255,194,32,.35);
+}
+
+body.light-mode .hero-badge{
+  background: rgba(255,255,255,.75);
+}
+
+.hero-content h1{
+  font-size:clamp(2rem, 4.8vw, 3.7rem);
+  line-height:1.2;
+  margin-bottom:14px;
+  text-shadow: 0 12px 40px rgba(0,0,0,.55);
+}
+
+.hero-content p{
+  font-size:clamp(1rem, 1.6vw, 1.15rem);
+  color:rgba(255,255,255,.86);
+  margin-bottom:24px;
+  text-shadow: 0 10px 34px rgba(0,0,0,.50);
+}
+body.light-mode .hero-content p{ color: rgba(0,0,0,.70); text-shadow:none; }
+
+.buttons{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+
+.scroll-hint{
+  display:inline-flex;
+  margin-top:20px;
+  width:34px;
+  height:52px;
+  border-radius:999px;
+  border:1px solid rgba(255,194,32,.35);
+  background: rgba(0,0,0,.18);
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:transform .18s ease, border-color .18s ease;
+}
+.scroll-hint:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,194,32,.65);
+}
+.scroll-hint .dot{
+  width:8px;height:8px;border-radius:50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  box-shadow: 0 10px 22px rgba(255,194,32,.20);
+  animation: floatDot 1.4s ease-in-out infinite;
+}
+@keyframes floatDot{
+  0%,100%{ transform:translateY(6px); opacity:.85; }
+  50%{ transform:translateY(-6px); opacity:1; }
+}
+
+/* ================= About ================= */
+/* ================= About Background ================= */
+.about-us{
+  position: relative;
+  background-image: url("about-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.about-us::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+
+  /* Dark luxury overlay */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.75),
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.85)
+    );
+}
+.about-us > .container{
+  position: relative;
+  z-index:2;
+}
+
+.about-text h2{
+  font-size:clamp(1.5rem, 2.4vw, 2.35rem);
+  margin-bottom:14px;
+}
+.about-text p{ color: var(--muted); margin-bottom:18px; }
+
+.stats{ display:flex; flex-wrap:wrap; gap:14px; margin-top:18px; }
+.stat{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding:14px 16px;
+  min-width:160px;
+  box-shadow: var(--shadow-soft);
+}
+.stat span{
+  display:block;
+  font-weight:900;
+  font-size:1.7rem;
+  color: var(--gold);
+  line-height:1.1;
+  margin-bottom:4px;
+}
+.stat small{ color: var(--muted); font-weight:800; }
+
+.about-video{
+  border-radius: var(--r-lg);
+  overflow: hidden;
+
+  /* بدل ما يبقى بلاك تقيل */
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,194,32,.22);
+
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+@media (min-width: 901px){
+  .about-video{
+    max-width: 520px;   /* يقلل حجمه على الديسكتوب */
+    justify-self: end;  /* يخليه ناحية الفيديو طبيعي */
+  }
+}
+@media (max-width: 900px){
+  .about-video{
+    background: rgba(0,0,0,.14);
+  }
+}
+
+.native-video{
+  width: 100%;
+  height: auto;
+  display: block;
+
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+  /* أهم حاجة: مايبقاش فاحم */
+  background: transparent;
+}
+
+
+/* ================= High Board ================= */
+.high-board{ text-align:center; }
+.board-subtitle{
+  margin:-18px 0 26px;
+  color: var(--muted);
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.board-container{ max-width:1200px; margin:0 auto; }
+
+.member-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding:20px;
+  border-radius: var(--r-lg);
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.member-card:hover{
+  transform:translateY(-5px);
+  border-color: rgba(255,194,32,.55);
+  box-shadow: var(--shadow-soft);
+  background: var(--surface-2);
+}
+
+.member-img-box{
+  width:96px;height:96px;
+  border-radius:50%;
+  overflow:hidden;
+  border:3px solid rgba(255,194,32,.85);
+  background:#2a2a2a;
+  margin-bottom:12px;
+}
+.member-img-box img{ width:100%; height:100%; object-fit:cover; }
+
+.member-info h3{ font-size:1.05rem; margin-bottom:4px; }
+.role{ color: var(--gold); font-weight:900; font-size:.9rem; }
+
+.board-level-1{ display:flex; justify-content:center; margin-bottom:26px; }
+.president-card{
+  width:min(380px, 100%);
+  padding:34px 22px;
+  background:
+    radial-gradient(500px 220px at 50% 0%, rgba(255,194,32,.16), transparent 60%),
+    var(--surface);
+}
+.president-card .member-img-box{ width:140px; height:140px; border-width:4px; }
+
+.board-level-2{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.board-level-2 .member-card{ width:min(320px, 100%); padding:28px 22px; }
+
+.divider-line{
+  height:1px;
+  background: var(--border);
+  width:min(620px, 70%);
+  margin:0 auto 34px;
+}
+
+.board-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:18px;
+  text-align:start;
+}
+
+.team-group{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding:18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.team-name{
+  display:inline-block;
+  margin-bottom:12px;
+  padding-bottom:6px;
+  border-bottom:2px solid rgba(255,194,32,.75);
+  font-weight:900;
+}
+
+.small-card{
+  flex-direction:row;
+  justify-content:flex-start;
+  gap:12px;
+  text-align:start;
+  padding:12px 14px;
+  border-radius: var(--r-md);
+  margin-bottom:10px;
+  box-shadow:none;
+}
+.small-card .member-img-box{ width:56px; height:56px; margin:0; border-width:2px; }
+.small-card h3{ font-size:1rem; margin:0; }
+.small-card .role{ font-size:.85rem; }
+
+/* ================= Projects ================= */
+.projects{ background: var(--bg-2); }
+.projects-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:18px;
+}
+
+.project-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow:hidden;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.project-card:hover{
+  transform:translateY(-6px);
+  border-color: rgba(255,194,32,.45);
+  box-shadow: var(--shadow-soft);
+  background: var(--surface-2);
+}
+
+.project-img{ width:100%; aspect-ratio:16/10; object-fit:cover; }
+.card-content{ padding:18px; text-align:start; }
+.card-content h3{ margin-bottom:8px; }
+.card-content p{ color: var(--muted); font-size:.95rem; margin-bottom:14px; }
+
+.read-more{
+  color: var(--gold);
+  text-decoration:none;
+  font-weight:900;
+}
+.read-more:hover{ text-decoration:underline; }
+
+/* ================= Sponsors Section ================= */
+.sponsors{
+  background: var(--bg-2);
+}
+
+.section-subtitle{
+  margin-top: -26px;
+  margin-bottom: 32px;
+  color: var(--muted);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Featured sponsors layout */
+.featured-sponsors{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+/* Sponsor card */
+.sponsor-feature{
+  text-align: center;
+  padding: 34px 26px;
+
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,194,32,.22);
+  border-radius: var(--r-lg);
+
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.sponsor-feature:hover{
+  transform: translateY(-6px);
+  border-color: rgba(255,194,32,.55);
+  box-shadow: 0 30px 80px rgba(255,194,32,.12);
+}
+
+/* Logo */
+.sponsor-feature img{
+  max-width: 170px;
+  max-height: 90px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+
+  filter: grayscale(1);
+  opacity: .9;
+
+  transition: filter .22s ease, opacity .22s ease, transform .22s ease;
+}
+
+.sponsor-feature:hover img{
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* Text */
+.sponsor-feature h3{
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.sponsor-feature p{
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* Mobile */
+@media (max-width: 850px){
+  .featured-sponsors{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= Contact + Footer ================= */
+.contact-section{
+  display:none;
+  background: var(--surface);
+  padding:60px 0;
+  text-align:center;
+  border-top:1px solid var(--border);
+}
+.contact-section h2{ margin-bottom:10px; }
+.contact-section p{ color: var(--muted); margin-bottom:18px; }
+
+.btn-messenger{
+  background:#0084FF;
+  color:#fff;
+  padding:12px 22px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  box-shadow: var(--shadow-soft);
+  transition: transform .18s ease;
+}
+.btn-messenger:hover{ transform:translateY(-2px); }
+
+.footer{
+  background: rgba(0,0,0,.55);
+  padding:26px 0 12px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body.light-mode .footer{
+  background: #ffffff;
+  border-top:1px solid rgba(0,0,0,.10);
+}
+
+.footer-bottom{
+  color: rgba(255,255,255,.65);
+  font-size:.85rem;
+  margin-top:10px;
+}
+
+body.light-mode .footer-bottom{
+  color: rgba(0,0,0,.65);
+}
+
+
+.social-icons a{
+  text-decoration:none !important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  border:1px solid rgba(255,194,32,.22);
+  background:rgba(255,255,255,.03);
+  color: var(--text);
+  opacity: .95;
+}
+
+.social-icons a::before,
+.social-icons a::after{
+  content:none !important; /* أهم سطر لإزالة أي نقطة */
+}
+
+.social-icons a:hover{
+  opacity:1;
+  color: var(--gold);
+  border-color: rgba(255,194,32,.45);
+  background: rgba(255,194,32,.06);
+}
+
+.social-icons i{
+  font-size:1.2rem;
+  line-height:1;
+}
+
+
+@media (min-width: 901px){
+  .menu-toggle{ display:none; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+}
+
+/* ================= Mobile Tuning (ONLY) ================= */
+@media (max-width: 600px){
+
+  /* Navbar: خلي كل حاجة واضحة ومش متاكلة */
+  .navbar{ height:64px; }
+  :root{ --nav-h:64px; }
+
+  .logo{ font-size:16px; letter-spacing:.15px; }
+  .nav-actions{ gap:8px; }
+
+  .icon-btn{
+    padding:9px;
+    border-radius:10px;
+    font-size:1.05rem;
+  }
+
+  /* زر اللغة كان بيتاكل: صغّر الخط وزوّد وضوحه */
+  .lang-btn{
+    font-size:.9rem;
+    padding:9px 10px;
+    border-radius:10px;
+    min-width:88px;           /* يضمن إنه يبان */
+    white-space:nowrap;       /* يمنع كسر الكلمة */
+  }
+
+  /* Hero: النص كان كبير قوي على الموبايل */
+  .hero-content{
+    padding:18px;
+    border-radius:18px;
+    max-width: 94vw;
+  }
+
+  .hero-badge{
+    font-size:.85rem;
+    padding:7px 12px;
+    margin-bottom:12px;
+  }
+
+  .hero-content h1{
+    font-size: clamp(1.55rem, 7.2vw, 2.15rem);
+    line-height:1.22;
+    margin-bottom:10px;
+  }
+
+  .hero-content p{
+    font-size: clamp(.95rem, 4.2vw, 1.05rem);
+    margin-bottom:18px;
+  }
+
+  .buttons{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+  .buttons .btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  /* About video: كان بيطلع صغير - نخليه ياخد شكل محترم */
+  .about-video{
+    border-radius:18px;
+  }
+  .native-video{
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;     /* يخلي حجمه ثابت وجميل */
+    object-fit:cover;
+    max-height: 320px;     /* يمنع إنه يبقى صغير جدًا */
+    background:#000;
+  }
+}
+
+/* ===== Fix About layout + Video sizing on mobile ONLY ===== */
+@media (max-width: 900px){
+
+  /* اجبار الـ About يبقى عمود واحد */
+  .about-grid{
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+
+  /* خلّي الفيديو ياخد العرض كله */
+  .about-video{
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-self: stretch !important;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  /* تكبير الفيديو فعليًا */
+  .native-video{
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+
+    aspect-ratio: 16 / 9;   /* ده أهم سطر */
+    min-height: 220px;      /* يمنع الصغر الزيادة */
+    max-height: 420px;      /* يمنع الضخامة الزيادة */
+    object-fit: cover;
+    background: #000;
+  }
+}
+
+/* ===== About: Light mode readability fix ===== */
+body.light-mode .about-us::before{
+  /* بدل overlay الغامق في اللايت */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,.40),
+      rgba(255,255,255,.40),
+      rgba(255,255,255,.40)
+    );
+}
+
+body.light-mode .about-us{
+  color: #141414; /* يخلي النص كله داخل القسم أغمق */
+}
+
+body.light-mode .about-us .about-text p,
+body.light-mode .about-us .board-subtitle{
+  color: rgba(0,0,0,.72);
+}
+
+body.light-mode .about-us .highlight{
+  /* خلي الدهبي واضح في اللايت */
+  background: linear-gradient(90deg, #B88A2B, #FFC220);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color: transparent;
+}
+
+/* ===== Gold divider between Hero & About ===== */
+.section-divider{
+  width:100%;
+  height:1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,194,32,.55),
+    transparent
+  );
+}
+
+/* ================= Preloader (شاشة التحميل) ================= */
+#preloader {
+  position: fixed;
+  inset: 0; /* يغطي الشاشة كلها */
+  background-color: var(--bg); /* ياخد لون خلفية الموقع سواء فاتح أو غامق */
+  z-index: 9999; /* فوق كل حاجة */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* لما الموقع يحمل، الكلاس ده هيضاف عشان يخفي الشاشة */
+#preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loader-logo {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text);
+  letter-spacing: 2px;
+  animation: pulseLogo 1.5s infinite alternate; /* حركة النبض */
+}
+
+.loader-logo span {
+  color: var(--gold);
+}
+
+.loader-bar-container {
+  width: 150px;
+  height: 4px;
+  background: rgba(255, 194, 32, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-bar {
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  position: absolute;
+  left: -100%;
+  animation: loadBar 1.5s infinite ease-in-out; /* حركة الخط */
+}
+
+/* الحركات (Animations) */
+@keyframes pulseLogo {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes loadBar {
+  0% { left: -100%; }
+  50% { left: 0; }
+  100% { left: 100%; }
+}
+
+/* ================= Scroll to Top Button ================= */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  
+  /* تنسيق الألوان */
+  background: var(--surface); /* ياخد لون السطح بتاع الثيم */
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  z-index: 999; /* فوق العناصر العادية */
+  
+  /* الإخفاء الافتراضي */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(5px);
+}
+
+/* لما الزرار يبقى نشط (هنضيف الكلاس ده بالجافاسكريبت) */
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: var(--gold);
+  color: #000;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 194, 32, 0.3);
+}
+
+/* في الموبايل نبعده شوية عن الحافة عشان ميتداخلش مع صباع المستخدم */
+@media (max-width: 600px) {
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.scroll-top-btn {
+  /* ... نفس الاكواد القديمة (position, bottom, right, etc..) ... */
+  
+  /* التعديل هنا: خليه ظاهر علطول عشان نشوفه */
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  
+  /* غير اللون مؤقتاً لأحمر عشان يلمع وتشوفه فوراً */
+  background: rgb(5, 5, 0); 
+  z-index: 99999; /* رقم فلكي عشان يطلع فوق أي حاجة */
+}
+
+/* ================= Project Modal (المربع المنبثق) ================= */
+
+/* تنسيق زرار القراءة ليكون شبه اللينك القديم */
+.read-more-btn {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  font-family: inherit;
+  transition: 0.3s;
+}
+.read-more-btn:hover { 
+  text-decoration: underline; 
+  transform: translateX(-5px); /* حركة بسيطة لليسار */
+}
+
+/* خلفية المودال (تغطية الشاشة) */
+.modal {
+  display: none; /* مخفي افتراضياً */
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.85); /* أسود شفاف */
+  backdrop-filter: blur(8px); /* تغبيش الخلفية */
+  animation: fadeIn 0.4s ease;
+}
+
+/* صندوق المحتوى */
+.modal-content {
+  background-color: var(--bg-2);
+  margin: 5% auto;
+  padding: 40px;
+  border: 1px solid var(--gold);
+  border-radius: var(--r-lg);
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  color: var(--text);
+}
+
+/* زر الإغلاق (X) */
+.close-btn {
+  color: var(--muted);
+  float: left; /* ييجي شمال عشان العربي */
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  line-height: 20px;
+}
+.close-btn:hover { color: var(--gold); }
+
+/* تنسيق الصور جوه */
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.modal-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s;
+}
+.modal-gallery img:hover { transform: scale(1.02); }
+
+.gallery-title { margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* للموبايل */
+@media (max-width: 600px) {
+  .modal-content { margin: 20% auto; width: 95%; padding: 25px; }
+}
+

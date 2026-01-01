@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Enactus Fayoum University</title>
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+  <div id="preloader">
+  <div class="loader-content">
+    <div class="loader-logo">change <span>The world</span></div>
+    <div class="loader-bar-container">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+</div>
+  <!-- Navbar -->
+  <nav class="navbar" aria-label="الشريط العلوي">
+    <div class="container nav-inner">
+      <a class="logo" href="#top" aria-label="العودة للأعلى">
+        Enactus <span>Fayoum University</span>
+      </a>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="تبديل الثيم" title="Theme">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+
+        <button id="lang-toggle" class="lang-btn" type="button" aria-label="تبديل اللغة">English</button>
+
+        <button class="icon-btn menu-toggle" id="mobile-menu" type="button"
+                aria-label="فتح/إغلاق القائمة" aria-expanded="false">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#top" class="active" data-i18n="navHome">الرئيسية</a></li>
+        <li><a href="#about" data-i18n="navAbout">من نحن</a></li>
+        <li><a href="#board" data-i18n="navBoard">الهيكل الإداري</a></li>
+        <li><a href="#projects" data-i18n="navProjects">مشاريعنا</a></li>
+        <li><a href="#" id="contact-btn" data-i18n="navContact">تواصل معنا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-i18n="heroBadge">Enactus Fayoum University</div>
+
+      <h1>
+        <span data-i18n="heroTitle1">ريادة الأعمال لغدٍ</span>
+        <span class="highlight" data-i18n="heroTitle2">أفضل</span>
+      </h1>
+
+      <p data-i18n="heroDesc">
+        نحن طلاب جامعة الفيوم، نحول الأفكار إلى مشاريع حقيقية تخدم المجتمع وتحقق الاستدامة.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary" data-i18n="heroCtaPrimary">اكتشف مشاريعنا</a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScNLIl5-oxgN2T8Wv6sghp2de_Gp0tOTjef08p-ULveoHznKg/viewform?usp=sharing"
+   target="_blank" 
+   class="btn btn-glow" 
+   data-i18n="navJoin">انضم للتيم</a>
+<a href="#about" class="btn btn-outline" data-i18n="heroCtaSecondary">اعرف أكتر</a>
+      </div>
+      <a class="scroll-hint" href="#about" aria-label="النزول لأسفل">
+        <span class="dot" aria-hidden="true"></span>
+      </a>
+    </div>
+  </header>
+
+<div class="section-divider"></div>
+
+  <main>
+    <!-- About -->
+    <section class="about-us section" id="about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2>
+            <span data-i18n="aboutTitle1">من</span>
+            <span class="highlight" data-i18n="aboutTitle2">نحن؟</span>
+          </h2>
+
+          <p data-i18n="aboutDesc">
+            نحن فريق إيناكتس جامعة الفيوم، نؤمن بقوة العمل الريادي في تغيير حياة الناس.
+            نقوم بتحديد مشاكل مجتمعية حقيقية ونبتكر لها حلولاً مستدامة ومربحة.
+            هدفنا ليس الربح المادي، بل تمكين المجتمع وخلق عالم أفضل للجميع.
+          </p>
+
+          <div class="stats" aria-label="إحصائيات الفريق">
+            <div class="stat">
+              <span>+1000</span>
+              <small data-i18n="statMembers">عضو</small>
+            </div>
+            <div class="stat">
+              <span>+15</span>
+              <small data-i18n="statProjects">مشاريع</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-video">
+          <video controls class="native-video">
+            <source src="video.mp4" type="video/mp4" />
+            <span data-i18n="videoFallback">متصفحك لا يدعم الفيديو.</span>
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- High Board -->
+    <section class="high-board section" id="board">
+      <div class="container">
+        <h2 class="section-title">High <span class="highlight">Board</span></h2>
+
+        <div class="board-container">
+          <div class="board-level-1">
+            <div class="member-card president-card">
+              <div class="member-img-box">
+                <img src="pres.jpg" alt="Salma Yasser" loading="lazy" onerror="this.style.display='none';" />
+              </div>
+              <div class="member-info">
+                <h3>Salma Yasser</h3>
+                <span class="role">President</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-level-2">
+            <div class="member-card">
+              <div class="member-img-box">
+                <img src="vp1.jpg" alt="Eyad Bassem" loading="lazy" onerror="this.style.display='none';" />
+              </div>
+              <div class="member-info">
+                <h3>Eyad Bassem</h3>
+                <span class="role">Vice President</span>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-img-box">
+                <img src="vp2.jpg" alt="Ethar Mohamed" loading="lazy" onerror="this.style.display='none';" />
+              </div>
+              <div class="member-info">
+                <h3>Ethar Mohamed</h3>
+                <span class="role">Vice President</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider-line"></div>
+
+          <h3 class="board-subtitle">Board Directors</h3>
+
+          <div class="board-grid">
+            <div class="team-group">
+              <h4 class="team-name">Project Management</h4>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="pm-head.jpg" alt="Hager" loading="lazy" /></div>
+                <div><h3>Hager Hesham</h3><span class="role">Head</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="pm-co.jpg" alt="Mahmoud" loading="lazy" /></div>
+                <div><h3>Mahmoud Mohamed</h3><span class="role">Co-head</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="pm-vice.jpg" alt="Mariam" loading="lazy" /></div>
+                <div><h3>Mariam Yasser</h3><span class="role">Vice Head</span></div>
+              </div>
+            </div>
+
+            <div class="team-group">
+              <h4 class="team-name">Public Relations</h4>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="pr-head.jpg" alt="Malak" loading="lazy" /></div>
+                <div><h3>Malak Mo'men</h3><span class="role">Head</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="pr-vice.jpg" alt="Amira" loading="lazy" /></div>
+                <div><h3>Amira Kamal</h3><span class="role">Vice Head</span></div>
+              </div>
+            </div>
+
+            <div class="team-group">
+              <h4 class="team-name">Human Resources</h4>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="hr-head.jpg" alt="Ahmed" loading="lazy" /></div>
+                <div><h3>Ahmed Hesham</h3><span class="role">Head</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="hr-vice.jpg" alt="Shahd" loading="lazy" /></div>
+                <div><h3>Shahd Gamil</h3><span class="role">Vice Head</span></div>
+              </div>
+            </div>
+
+            <div class="team-group">
+              <h4 class="team-name">Presentation</h4>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="pres-head.jpg" alt="Ezz" loading="lazy" /></div>
+                <div><h3>Ezz El-Din</h3><span class="role">Head</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="pres-vice.jpg" alt="Alia" loading="lazy" /></div>
+                <div><h3>Alia Ahmed</h3><span class="role">Vice Head</span></div>
+              </div>
+            </div>
+
+            <div class="team-group">
+              <h4 class="team-name">Marketing</h4>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="mkt-head.jpg" alt="Shahd A" loading="lazy" /></div>
+                <div><h3>Shahd Alaa</h3><span class="role">Head</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="mkt-vice1.jpg" alt="Roa" loading="lazy" /></div>
+                <div><h3>Roa Mohamed</h3><span class="role">Vice Head</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="mkt-vice2.jpg" alt="Shahd W" loading="lazy" /></div>
+                <div><h3>Shahd Wael</h3><span class="role">Vice Head</span></div>
+              </div>
+            </div>
+
+            <div class="team-group">
+              <h4 class="team-name">Media &amp; Design</h4>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="gfx-head.jpg" alt="Ahmed R" loading="lazy" /></div>
+                <div><h3>Ahmed Rabie</h3><span class="role">Head GFX</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="gfx-vice.jpg" alt="Renad" loading="lazy" /></div>
+                <div><h3>Renad Hamouda</h3><span class="role">Vice GFX</span></div>
+              </div>
+
+              <div class="member-card small-card">
+                <div class="member-img-box"><img src="vid-head.jpg" alt="Abdelrahman" loading="lazy" /></div>
+                <div><h3>Abdelrahman Mohamed</h3><span class="role">Head Video</span></div>
+              </div>
+            </div>
+          </div><!-- /board-grid -->
+        </div><!-- /board-container -->
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <h2 class="section-title">
+          <span data-i18n="projectsTitle1">أحدث</span>
+          <span class="highlight" data-i18n="projectsTitle2">مشاريعنا</span>
+        </h2>
+
+        <div class="projects-container">
+          <div class="project-card">
+            <img src="cc.jpg" alt="CoolCycle" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/600x375'" />
+            <div class="card-content">
+              <h3>CoolCycle</h3>
+              <p data-i18n="project1Desc">
+               مبرد صغير مبتكر يعمل بكفاءة بالطاقة الشمسية فقط
+              </p>
+              
+              <button class="read-more-btn" onclick="openModal('modal-cc')">
+                اقرأ المزيد &larr;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="modal-cc" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal-cc')">&times;</span>
+        
+        <h2 class="highlight">CoolCycle Project</h2>
+        
+        <div class="modal-body">
+          <p>
+            <strong>مشروع CoolCycle</strong> هو الحل الأمثل للتبريد المستدام في المناطق الحارة والنائية. 
+            <br><br>
+            يعتمد المبرد بالكامل على الطاقة الشمسية النظيفة، مما يجعله صديقاً للبيئة وموفراً للطاقة بنسبة 100%. تم تصميمه ليكون خفيف الوزن، سهل الحمل، ويحافظ على البرودة لفترات طويلة باستخدام مواد عزل مبتكرة.
+            <br><br>
+            هدفنا هو توفير حلول تبريد للأدوية والأغذية للقرى التي تعاني من انقطاع الكهرباء.
+          </p>
+
+          <h3 class="gallery-title">صور للمنتج</h3>
+          <div class="modal-gallery">
+            <img src="cc-prototype.png" alt="CoolCycle prototype"> 
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <!-- Sponsors -->
+<section class="sponsors section" id="sponsors">
+  <div class="container">
+
+    <h2 class="section-title">
+      <span data-i18n="sponsorsTitle1">Our</span>
+      <span class="highlight" data-i18n="sponsorsTitle2">Sponsors</span>
+    </h2>
+
+    <p class="section-subtitle" data-i18n="sponsorsSubtitle">
+      العلامات التجارية التي دعمت رؤيتنا وكانت جزءًا من رحلتنا.
+    </p>
+
+    <div class="featured-sponsors">
+
+      <!-- Glow -->
+      <div class="sponsor-feature">
+        <img src="sponsor-1.png" alt="Glow Accessories Logo" loading="lazy">
+        <h3 data-i18n="sponsorGlowName">Glow</h3>
+        <p data-i18n="sponsorGlowDesc">
+          براند إكسسوارات عصرية يركز على البساطة والأناقة ويضيف لمسة مميزة لكل إطلالة.
+        </p>
+      </div>
+
+      <!-- Biscofa -->
+      <div class="sponsor-feature">
+        <img src="sponsor-2.png" alt="Biscofa Cafe Logo" loading="lazy">
+        <h3 data-i18n="sponsorBiscofaName">Biscofa</h3>
+        <p data-i18n="sponsorBiscofaDesc">
+          كافيه متخصص في المشروبات الساخنة والباردة، يجمع بين الجودة والطعم المميز.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact-section">
+      <div class="container">
+        <h2 data-i18n="contactTitle">هل لديك فكرة أو استفسار؟</h2>
+        <p data-i18n="contactDesc">نحن هنا للمساعدة! تواصل مع فريقنا مباشرة عبر فيسبوك ماسنجر.</p>
+
+        <a href="https://www.messenger.com/t/270366866156258"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-messenger">
+          <i class="fab fa-facebook-messenger" aria-hidden="true"></i>
+          <span data-i18n="contactBtn">تواصل معنا عبر Messenger</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61557134266414" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/enactusfayomuniversity/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/enactus-fayoum-university" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.tiktok.com/@enactus.fayoum.un" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p data-i18n-html="footerRights">جميع الحقوق محفوظة &copy; 2026 Enactus Fayoum University</p>
+    </div>
+  </footer>
+
+  <script>
+    // ---------------------------
+    // 0) Language toggle (AR/EN)
+    // ---------------------------
+    const langBtn = document.getElementById("lang-toggle");
+
+    const translations = {
+      ar: {
+        pageTitle: "Enactus Fayoum University",
+        navHome: "الرئيسية",
+        navAbout: "من نحن",
+        navBoard: "الهيكل الإداري",
+        navProjects: "مشاريعنا",
+        navContact: "تواصل معنا",
+        navJoin: "انضم للتيم",
+
+        heroBadge: "Enactus • Fayoum University",
+        heroTitle1: "ريادة الأعمال لغدٍ",
+        heroTitle2: "أفضل",
+        heroDesc: "نحن طلاب جامعة الفيوم، نحول الأفكار إلى مشاريع حقيقية تخدم المجتمع وتحقق الاستدامة.",
+        heroCtaPrimary: "اكتشف مشاريعنا",
+        heroCtaSecondary: "اعرف أكتر",
+
+        aboutTitle1: "من",
+        aboutTitle2: "نحن؟",
+        aboutDesc:
+          "نحن فريق إيناكتس جامعة الفيوم، نؤمن بقوة العمل الريادي في تغيير حياة الناس. نقوم بتحديد مشاكل مجتمعية حقيقية ونبتكر لها حلولاً مستدامة ومربحة. هدفنا ليس الربح المادي، بل تمكين المجتمع وخلق عالم أفضل للجميع.",
+        statMembers: "عضو",
+        statProjects: "مشاريع",
+        videoFallback: "متصفحك لا يدعم الفيديو.",
+
+        projectsTitle1: "أحدث",
+        projectsTitle2: "مشاريعنا",
+        project1Desc:
+          "مبرد صغير مبتكر يعمل بكفائة بالطاقة الشمسية فقط",
+        readMore: "اقرأ المزيد &larr;",
+
+        contactTitle: "هل لديك فكرة أو استفسار؟",
+        contactDesc: "نحن هنا للمساعدة! تواصل مع فريقنا مباشرة عبر فيسبوك ماسنجر.",
+        contactBtn: "تواصل معنا عبر Messenger",
+
+        footerRights: "جميع الحقوق محفوظة &copy; 2026 Enactus Fayoum University",
+
+        sponsorsTitle1: "رعاتنا",
+        sponsorsTitle2: "وشركاؤنا",
+        sponsorsSubtitle: "العلامات التجارية التي دعمت رؤيتنا وكانت جزءًا من رحلتنا.",
+
+        sponsorGlowName: "Glow",
+        sponsorGlowDesc: "براند إكسسوارات عصرية يركز على البساطة والأناقة ويضيف لمسة مميزة لكل إطلالة.",
+
+        sponsorBiscofaName: "Biscofa",
+        sponsorBiscofaDesc: "كافيه متخصص في المشروبات الساخنة والباردة، يجمع بين الجودة والطعم المميز."
+      },
+
+      en: {
+        pageTitle: "Enactus Fayoum University",
+        navHome: "Home",
+        navAbout: "About",
+        navBoard: "High Board",
+        navProjects: "Projects",
+        navContact: "Contact",
+        navJoin: "Join the Team",
+
+        heroBadge: "Enactus • Fayoum University",
+        heroTitle1: "Entrepreneurship for a",
+        heroTitle2: "Better Tomorrow",
+        heroDesc:
+          "We are Fayoum University students, turning ideas into real projects that serve the community and drive sustainability.",
+        heroCtaPrimary: "Explore our projects",
+        heroCtaSecondary: "Learn more",
+
+        aboutTitle1: "Who",
+        aboutTitle2: "Are We?",
+        aboutDesc:
+          "We are Enactus Fayoum University. We believe entrepreneurship can change lives. We identify real community challenges and build sustainable, profitable solutions. Our goal isn’t just profit—it’s empowerment and a better world for everyone.",
+        statMembers: "Members",
+        statProjects: "Projects",
+        videoFallback: "Your browser does not support video.",
+
+        projectsTitle1: "Latest",
+        projectsTitle2: "Projects",
+        project1Desc:
+          "An innovative mini-cooler that operates efficiently using only solar power..",
+        readMore: "Read more &rarr;",
+
+        contactTitle: "Have an idea or a question?",
+        contactDesc: "We’re here to help! Reach our team directly on Facebook Messenger.",
+        contactBtn: "Message us on Messenger",
+
+        footerRights: "All rights reserved &copy; Enactus Fayoum University2026",
+
+        sponsorsTitle1: "Our",
+        sponsorsTitle2: "Sponsors",
+        sponsorsSubtitle: "Brands and partners who supported our vision and became part of our journey.",
+
+        sponsorGlowName: "Glow",
+        sponsorGlowDesc: "A modern accessories brand focused on simplicity and elegance—adding a unique touch to every look.",
+
+        sponsorBiscofaName: "Biscofa",
+        sponsorBiscofaDesc: "A café specializing in hot and cold beverages, combining quality with a distinctive taste."
+      }
+    };
+
+
+    function applyLang(lang) {
+      const dict = translations[lang] || translations.ar;
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      document.title = dict.pageTitle || document.title;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll("[data-i18n-html]").forEach(el => {
+        const key = el.getAttribute("data-i18n-html");
+        if (dict[key] != null) el.innerHTML = dict[key];
+      });
+
+      if (langBtn) {
+        langBtn.textContent = lang === "ar" ? "English" : "عربي";
+        langBtn.setAttribute("aria-label", lang === "ar" ? "Switch language" : "تبديل اللغة");
+      }
+
+      localStorage.setItem("lang", lang);
+    }
+
+    const initialLang = localStorage.getItem("lang") || "ar";
+    applyLang(initialLang);
+
+    if (langBtn) {
+      langBtn.addEventListener("click", () => {
+        const current = document.documentElement.lang || "ar";
+        applyLang(current === "ar" ? "en" : "ar");
+      });
+    }
+
+    // ---------------------------
+    // 1) Mobile menu
+    // ---------------------------
+    const menuToggle = document.getElementById("mobile-menu");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", navLinks.classList.contains("active"));
+      });
+
+      // Close on link click (mobile)
+      navLinks.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    // ---------------------------
+    // 2) Contact toggle
+    // ---------------------------
+    const contactBtn = document.getElementById("contact-btn");
+    const contactSection = document.getElementById("contact-section");
+
+    if (contactBtn && contactSection) {
+      contactBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        navLinks && navLinks.classList.remove("active");
+        menuToggle && menuToggle.setAttribute("aria-expanded", "false");
+
+        const isHidden = getComputedStyle(contactSection).display === "none";
+        contactSection.style.display = isHidden ? "block" : "none";
+
+        if (isHidden) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+
+    // ---------------------------
+    // 3) Theme toggle (Dark/Light) + persist
+    // ---------------------------
+    const themeBtn = document.getElementById("theme-toggle");
+    const themeIcon = themeBtn ? themeBtn.querySelector("i") : null;
+
+    function applyTheme(mode) {
+      document.body.classList.toggle("light-mode", mode === "light");
+      if (themeIcon) {
+        themeIcon.classList.toggle("fa-sun", mode === "light");
+        themeIcon.classList.toggle("fa-moon", mode !== "light");
+      }
+      localStorage.setItem("theme", mode);
+    }
+
+    const initialTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(initialTheme);
+
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const next = document.body.classList.contains("light-mode") ? "dark" : "light";
+        applyTheme(next);
+      });
+    }
+    // ---------------------------
+    // 4) Preloader Logic
+    // ---------------------------
+    window.addEventListener("load", () => {
+      const preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.classList.add("loaded");
+        // نشيله خالص من الصفحة بعد ما يختفي عشان ميعملش زحمة
+        setTimeout(() => preloader.remove(), 500); 
+      }
+    });
+    // ---------------------------
+    // 5) Scroll to Top Logic
+    // ---------------------------
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (scrollTopBtn) {
+        // لو نزلنا اكتر من 500 بيكسل أظهر الزرار
+        if (window.scrollY > 500) {
+          scrollTopBtn.classList.add("show");
+        } else {
+          scrollTopBtn.classList.remove("show");
+        }
+      }
+    });
+    // ---------------------------
+    // 6) Scroll Reveal Animations (حركات الظهور)
+    // ---------------------------
+    
+    // إعدادات الحركة العامة
+    const sr = ScrollReveal({
+      origin: 'bottom',   // العناصر تطلع من تحت لفوق
+      distance: '60px',   // المسافة اللي بتمشيها
+      duration: 2500,     // مدة الحركة (بطيئة وشيك)
+      delay: 400,         // تأخير بسيط قبل ما تبدأ
+      reset: false        // الحركة تحصل مرة واحدة بس (عشان متزغللش العين)
+    });
+
+    // توزيع الحركات على العناصر
+    sr.reveal('.hero-content', { origin: 'top' }); // الهيرو ينزل من فوق
+    sr.reveal('.about-text', { origin: 'left' });  // النص ييجي من الشمال
+    sr.reveal('.about-video', { origin: 'right', delay: 800 }); // الفيديو ييجي من اليمين
+    sr.reveal('.section-title', { interval: 200 }); // العناوين
+    sr.reveal('.member-card', { interval: 200 });   // كروت الأعضاء ورا بعض
+    sr.reveal('.project-card', { interval: 200 });  // المشاريع
+    sr.reveal('.sponsor-feature', { interval: 200, origin: 'top' }); // الرعاة
+
+    // ---------------------------
+    // 7) Project Modal Logic
+    // ---------------------------
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // وقف سكرول الصفحة الأصلية
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // رجع السكرول
+      }
+    }
+
+    // اقفل لو داس بره الصندوق
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+  </script>
+  <a href="#top" id="scrollTopBtn" class="scroll-top-btn" aria-label="العودة للأعلى">
+  <i class="fas fa-arrow-up"></i>
+</a>
+</body>
+</html>
