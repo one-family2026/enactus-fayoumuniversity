@@ -1175,3 +1175,147 @@ body.light-mode .about-us .highlight{
   .modal-content { margin: 20% auto; width: 95%; padding: 25px; }
 }
 
+/* ================= Card Overlay (إضافة وصف اللجان) ================= */
+.member-card {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* الطبقة السوداء الشفافة */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9); /* لون أسود تقيل شوية عشان القراءة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100%); /* مستخبية تحت */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+}
+
+/* عند مرور الماوس */
+.member-card:hover .card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* تنسيق النص */
+.card-overlay p {
+  color: #fff;
+  font-size: 0.85rem; /* خط مناسب للمساحة الصغيرة */
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ================= Marquee Gallery (CSS only) ================= */
+.marquee-gallery{
+  background: var(--bg-2);
+  position: relative;
+}
+
+.marquee-rows{
+  margin-top: 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.marquee-row{
+  position: relative;
+  overflow: hidden;
+  padding-block: 10px;
+
+  /* premium edge fade */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track{
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-track img{
+  height: 140px;
+  width: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(255,194,32,.22);
+  box-shadow: var(--shadow-soft);
+  object-fit: cover;
+  background: rgba(255,255,255,.04);
+
+  /* premium feel */
+  filter: saturate(1.05) contrast(1.05);
+  transform: translateZ(0);
+  transition: transform .18s ease, filter .18s ease, border-color .18s ease;
+}
+
+.marquee-track img:hover{
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(255,194,32,.55);
+  filter: saturate(1.12) contrast(1.08);
+}
+
+/* Dynamic speeds + opposite directions */
+@keyframes marquee-left{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+@keyframes marquee-right{
+  from{ transform: translateX(-50%); }
+  to{ transform: translateX(0); }
+}
+
+.row-events .marquee-track{
+  animation: marquee-left 18s linear infinite;   /* أسرع */
+}
+.row-work .marquee-track{
+  animation: marquee-right 24s linear infinite;  /* أهدى شويه */
+}
+
+/* Pause on hover (desktop) */
+@media (hover: hover) and (pointer: fine){
+  .marquee-row:hover .marquee-track{
+    animation-play-state: paused;
+  }
+}
+
+/* Mobile sizing */
+@media (max-width: 900px){
+  .marquee-track img{
+    height: 105px;
+    border-radius: 16px;
+  }
+}
+@media (max-width: 520px){
+  .marquee-track img{
+    height: 92px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .row-events .marquee-track,
+  .row-work .marquee-track{
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Fix marquee gap in RTL (Arabic) - keep marquee LTR for perfect loop */
+html[dir="rtl"] .marquee-row{
+  direction: ltr;
+  display: flex;
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] .marquee-track{
+  flex: 0 0 auto;
+}
